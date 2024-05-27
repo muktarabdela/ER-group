@@ -1,0 +1,14 @@
+.imgae-conyainer {
+    -webkit-box-shadow: -2px -1px 9px 3.5px #fc0000;
+    -moz-box-shadow: -2px -1px 9px 3.5px #000000;
+    box-shadow: -2px -1px 9px 3.5px #736d6d;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: max-content !important;
+    padding-bottom: 64px !important;
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+    position: relative;
+}

@@ -1,0 +1,95 @@
+.er__team {
+    text-align: center;
+    padding: 70px 0;
+}
+
+.er__team-text {
+    margin: 0 0 100px;
+}
+
+.er__team-text__title {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #333;
+}
+
+.er__team-text__description {
+    font-size: 20px;
+    color: rgb(119, 118, 118);
+}
+
+.er__team-text__border {
+    height: 4px;
+    width: 100px;
+    border-radius: 2px;
+    background-color: blue;
+    margin: 15px auto 0;
+}
+
+.er__team-image {
+    margin: 0 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.er__team-image__first-image img,
+.er__team-image__second-image img,
+.er__team-image__third-image img {
+    border-radius: 0 0 120px;
+    width: 350px;
+}
+
+.er__team-image__first-image,
+.er__team-image__second-image,
+.er__team-image__third-image {
+    height: 300px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 0 20px;
+    border-radius: 120px 0;
+}
+
+.er__team-image__first-image {
+    background-color: #6475EB;
+}
+
+.er__team-image__second-image {
+    background-color: #62D7E8;
+}
+
+.er__team-image__third-image {
+    background-color: #FFD84F;
+}
+
+.er__team-image__first-name,
+.er__team-image__second-name,
+.er__team-image__third-name {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: left;
+    font: uppercase;
+    text-transform: uppercase;
+}
+
+.er__team-image__first-description,
+.er__team-image__second-description,
+.er__team-image__third-description {
+    text-align: left;
+    color: rgb(76, 74, 74);
+}
+
+.er__team-image__first-link,
+.er__team-image__second-link,
+.er__team-image__third-link {
+    display: flex;
+}
+
+.er__team-image__links img {
+    width: 20px;
+    margin: 8px 0 0;
+}
+
+.linkedin {
+    margin: 0 10px;
+}

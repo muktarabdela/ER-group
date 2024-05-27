@@ -1,0 +1,12 @@
+.container {
+    background: #fdfbfb;
+    background: -webkit-radial-gradient(circle, #fefefe 0%, #ffffff 100%);
+    background: radial-gradient(circle, #e1e0e0 0%, #ffffff 100%);
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}

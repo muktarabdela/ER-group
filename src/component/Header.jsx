@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useUiContext } from '../UiContext';
 
 function Header() {
+    const [isBlurred, setIsBlurred] = useState(false);
+    const { isOpen, toggleMenu } = useUiContext();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 0) {
+                setIsBlurred(true);
+            } else {
+                setIsBlurred(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+    console.log(isOpen)
     return (
         <div>
-            <header className="pb-6 bg-white lg:pb-0">
+            <header className={`pb-4 lg:pb-0 fixed top-0 z-50 w-full ${isBlurred ? 'bg-gradient-to-b from-transparent to-gray-200' : 'bg-white'}`} style={{ backdropFilter: isBlurred ? 'blur(10px)' : '' }}>
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {/* lg+ */}
                     <nav className="flex items-center justify-between h-16 lg:h-20">
@@ -19,10 +36,11 @@ function Header() {
                         <button
                             type="button"
                             className="inline-flex p-2 text-black transition-all duration-200 rounded-md lg:hidden focus:bg-gray-100 hover:bg-gray-100"
+                            onClick={toggleMenu}
                         >
                             {/* Menu open: "hidden", Menu closed: "block" */}
                             <svg
-                                className="block w-6 h-6"
+                                className={`${isOpen ? 'hidden' : 'block'} w-6 h-6`}
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -37,7 +55,7 @@ function Header() {
                             </svg>
                             {/* Menu open: "block", Menu closed: "hidden" */}
                             <svg
-                                className="hidden w-6 h-6"
+                                className={`${isOpen ? 'block' : 'hidden'} w-6 h-6`}
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
@@ -58,7 +76,7 @@ function Header() {
                                 className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                             >
                                 {" "}
-                                Features{" "}
+                                products{" "}
                             </a>
                             <a
                                 href="#"
@@ -66,7 +84,7 @@ function Header() {
                                 className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                             >
                                 {" "}
-                                Solutions{" "}
+                                Services{" "}
                             </a>
                             <a
                                 href="#"
@@ -74,7 +92,7 @@ function Header() {
                                 className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                             >
                                 {" "}
-                                Resources{" "}
+                                Team{" "}
                             </a>
                             <a
                                 href="#"
@@ -82,7 +100,7 @@ function Header() {
                                 className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                             >
                                 {" "}
-                                Pricing{" "}
+                                About Us{" "}
                             </a>
                         </div>
                         <a
@@ -92,59 +110,54 @@ function Header() {
                             role="button"
                         >
                             {" "}
-                            Get started now{" "}
+                            Contact us{" "}
                         </a>
                     </nav>
                     {/* xs to lg */}
-                    <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md lg:hidden">
-                        <div className="flow-root">
-                            <div className="flex flex-col px-6 -my-2 space-y-1">
+                    {isOpen && (
+                        <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md lg:hidden">
+                            <div className="flow-root">
+                                <div className="flex flex-col px-6 -my-2 space-y-1">
+                                    <a
+                                        href="#"
+                                        title=""
+                                        className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                                    >
+                                        Products
+                                    </a>
+                                    <a
+                                        href="#"
+                                        title=""
+                                        className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                                    >
+                                        Services
+                                    </a>
+                                    <a
+                                        href="#"
+                                        title=""
+                                        className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                                    >
+                                        Team
+                                    </a>
+                                    <a
+                                        href="#"
+                                        title=""
+                                        className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                                    >
+                                        About Us
+                                    </a>
+                                </div>
                                 <a
                                     href="#"
                                     title=""
-                                    className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                                    className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md lg:inline-flex hover:bg-blue-700 focus:bg-blue-700"
+                                    role="button"
                                 >
-                                    {" "}
-                                    Features{" "}
-                                </a>
-                                <a
-                                    href="#"
-                                    title=""
-                                    className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                                >
-                                    {" "}
-                                    Solutions{" "}
-                                </a>
-                                <a
-                                    href="#"
-                                    title=""
-                                    className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                                >
-                                    {" "}
-                                    Resources{" "}
-                                </a>
-                                <a
-                                    href="#"
-                                    title=""
-                                    className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                                >
-                                    {" "}
-                                    Pricing{" "}
+                                    Contact us
                                 </a>
                             </div>
-                        </div>
-                        <div className="px-6 mt-6">
-                            <a
-                                href="#"
-                                title=""
-                                className="inline-flex justify-center px-4 py-3 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md tems-center hover:bg-blue-700 focus:bg-blue-700"
-                                role="button"
-                            >
-                                {" "}
-                                Get started now{" "}
-                            </a>
-                        </div>
-                    </nav>
+                        </nav>
+                    )}
                 </div>
             </header>
 
