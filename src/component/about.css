@@ -1,12 +1,12 @@
 .er__about {
-    background-color: #f5f5f5;
     padding: 50px 0;
+    background-color: #f5f5f5;
 }
 
 .er__about-sides {
     display: flex;
     justify-content: space-evenly;
-    margin: 50px 160px;
+    margin: 50px 119px;
     align-items: center;
 }
 

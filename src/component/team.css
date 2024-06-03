@@ -15,7 +15,7 @@
 
 .er__team-text__description {
     font-size: 20px;
-    color: rgb(119, 118, 118);
+    color: #444;
 }
 
 .er__team-text__border {
@@ -27,7 +27,7 @@
 }
 
 .er__team-image {
-    margin: 0 150px;
+    margin: 0 119px;
     display: flex;
     justify-content: space-between;
 }
