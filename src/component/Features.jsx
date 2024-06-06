@@ -1,5 +1,4 @@
 import React from 'react'
-import './features.css'
 import feature from "../assets/feautres.jpg"
 import apple from "../assets/app-store.png"
 import play from "../assets/google-play.png"
@@ -12,24 +11,27 @@ import { fadeIn } from '../variants'
 
 const Features = () => {
     return (
-        <div className='er__features'>
-            <div className="er__features-sides">
-                <div className="er__features-sides__left">
-                    <div className="er__features-sides__left-img">
+        <div className='py-[50px] md:py-[100px] lg:py-[150px]'>
+            <div className="flex flex-col lg:flex-row justify-between items-center mx-[20px] md:mx-[50px] lg:mx-[119px]">
+                <div className="mb-[45px] lg:mb-0 lg:mr-[45px]">
+                    <div className="bg-[#f5f5f5] p-[10px] md:p-[20px] rounded-[20px] md:rounded-[40px]">
                         <motion.img
                             variants={fadeIn("right", 0.2)}
                             initial="hidden"
                             whileInView={"show"}
-                            viewport={{ once: true, amount: 1 }} src={feature} />
+                            viewport={{ once: true, amount: 1 }}
+                            src={feature}
+                            className="w-full md:w-[500px] rounded-[20px] md:rounded-[40px]" />
                     </div>
                 </div>
-                <div className="er__features-sides__right">
-                    <div className="er__features-sides__right-text">
+                <div className="lg:ml-[45px] text-center lg:text-left">
+                    <div>
                         <motion.h1
                             variants={fadeIn("up", 0.2)}
                             initial="hidden"
                             whileInView={"show"}
-                            viewport={{ once: true, amount: 1 }} className="er__features-sides__right-text__title">
+                            viewport={{ once: true, amount: 1 }}
+                            className="text-[30px] md:text-[40px] lg:text-[60px] font-extrabold mb-[30px] md:mb-[50px]">
                             New candidates
                             <br />
                             automatically show up
@@ -38,7 +40,8 @@ const Features = () => {
                             variants={fadeIn("up", 0.2)}
                             initial="hidden"
                             whileInView={"show"}
-                            viewport={{ once: true, amount: 1 }} className="er__features-sides__right-text__description">
+                            viewport={{ once: true, amount: 1 }}
+                            className="font-light text-[#222]">
                             When people think of hiring, they think of outdated practices, stuffy procedures, and broken norms.
                             <br />
                             <br />
@@ -52,39 +55,37 @@ const Features = () => {
                             initial="hidden"
                             whileInView={"show"}
                             viewport={{ once: true, amount: 1 }}
-
-                            className="er__features-sides__right-text__btn">
-                            <div className="er__features-sides__right-text__btn-right">
+                            className="mt-[30px] md:mt-[50px] flex flex-col lg:flex-row justify-between items-center">
+                            <div className="text-[20px] text-[#62D9C7] font-extrabold flex items-center mb-[20px] lg:mb-0">
                                 <a href="#">
                                     Learn More
                                 </a>
-                                <img src={arrow} />
+                                <img src={arrow} className="w-[20px] pt-[4px] ml-[10px]" />
                             </div>
-                            <div className="er__features-sides__right-text__btn-left">
-                                <button className="er__features-sides__right-text__apple">
-                                    <div className="er__features-sides__right-text__apple-text">
-                                        <small>Available on the</small>
+                            <div className="flex flex-col sm:flex-row">
+                                <button className="mr-0 sm:mr-[30px] flex items-center border-none rounded-[5px] px-[15px] py-[8px] bg-[#111] text-[#f5f5f5] mb-[20px] sm:mb-0">
+                                    <div className="flex flex-col text-left">
+                                        <small className="text-[10px] font-light">Available on the</small>
                                         <strong>App Store</strong>
-
                                     </div>
-                                    <img src={apple} />
+                                    <img src={apple} className="w-[37px] ml-[15px]" />
                                 </button>
-                                <button className="er__features-sides__right-text__play">
-                                    <div className="er__features-sides__right-text__play-text">
-                                        <small>GET IT ON </small>
+                                <button className="flex items-center border-none rounded-[5px] px-[15px] py-[8px] bg-[#111] text-[#f5f5f5]">
+                                    <div className="flex flex-col text-left">
+                                        <small className="text-[10px] font-light">GET IT ON</small>
                                         <strong>Google Play</strong>
                                     </div>
-                                    <img src={play} />
+                                    <img src={play} className="w-[37px] ml-[15px]" />
                                 </button>
                             </div>
                         </motion.div>
                     </div>
                 </div>
             </div>
-            <div className="er__features-bottom">
-                <a href="#" className="er__features-bottom__text">
+            <div className="text-center my-[30px] md:my-[10px] -mb-[30px] md:-mb-[50px]">
+                <a href="#" className="text-[20px] md:text-[30px] font-extrabold text-blue-600">
                     More Products
-                    <img src={items} />
+                    <img src={items} className="w-[30px] ml-[15px] inline-block pb-[8px]" />
                 </a>
             </div>
         </div>

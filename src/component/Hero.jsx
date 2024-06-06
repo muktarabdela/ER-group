@@ -35,39 +35,53 @@ const Hero = () => {
     };
 
     return (
-        <div className='bg-[#fbfbfb]'>
+        <div className='bg-[#fbfbfb] mt-10'>
             <div className="">
                 <section className=" bg-opacity-30 py-10 sm:py-16 lg:py-24">
                     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
 
                             <motion.div
-                                className="card"
-                                initial={{
-                                    opacity: 0,
-                                    // if odd index card,slide from right instead of left
-                                    x: 1 % 2 === 0 ? 50 : -50
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    x: 0, // Slide in to its original position
-                                    transition: {
-                                        duration: 1 // Animation duration
-                                    }
-                                }}
-                                viewport={{ once: true }}
+
                             >
-                                <p className="text-base font-semibold tracking-wider text-blue-600 uppercase">
+                                <motion.p
+                                    initial={{ display: "none", opacity: 0, y: 50 }}
+                                    animate={{ display: "block", opacity: 1, y: 10 }}
+                                    transition={{
+                                        duration: 0.5,
+                                        ease: "easeIn"
+                                    }}
+                                    className="text-base font-semibold tracking-wider text-blue-600 uppercase">
                                     ER Groups  System Technology
-                                </p>
-                                <h1 className="mt-4 text-4xl font-bold text-black lg:mt-8 sm:text-6xl xl:text-7xl">
+                                </motion.p>
+                                <motion.h1
+                                    initial={{ display: "none", opacity: 0, y: 50 }}
+                                    animate={{ display: "block", opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.7,
+                                        ease: "easeIn"
+                                    }}
+                                    className="mt-4 text-4xl font-bold text-black lg:mt-8 sm:text-6xl xl:text-7xl" >
                                     A company driven by
-                                    providing technological solutions                                  </h1>
-                                <p className="mt-4 text-base text-black lg:mt-8 sm:text-xl pr-40">
+                                    providing technological solutions                                  </motion.h1>
+                                <motion.p
+                                    initial={{ display: "none", opacity: 0, y: 50 }}
+                                    animate={{ display: "block", opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        ease: "easeIn"
+                                    }}
+                                    className="mt-4 text-base text-black lg:mt-8 sm:text-xl pr-40">
                                     We believe in delivering life-simplifying
                                     and user-friendly financial solutions to the Ethiopian market.
-                                </p>
-                                <a
+                                </motion.p>
+                                <motion.a
+                                    initial={{ display: "none", opacity: 0, y: 50 }}
+                                    animate={{ display: "inline-flex", opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        ease: "easeIn"
+                                    }}
                                     href="#"
                                     title=""
                                     className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-black transition-all duration-200 bg-yellow-300 rounded-full lg:mt-16 hover:bg-yellow-400 focus:bg-yellow-400"
@@ -88,8 +102,15 @@ const Hero = () => {
                                             d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
                                         />
                                     </svg>
-                                </a>
-                                <p className="mt-5 text-gray-600">
+                                </motion.a>
+                                <motion.p
+                                    initial={{ display: "none", opacity: 0, y: 50 }}
+                                    animate={{ display: "block", opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 1.3,
+                                        ease: "easeIn"
+                                    }}
+                                    className="mt-5 text-gray-600">
                                     Already joined us?{" "}
                                     <a
                                         href="#"
@@ -98,23 +119,16 @@ const Hero = () => {
                                     >
                                         Log in
                                     </a>
-                                </p>
+                                </motion.p>
                             </motion.div>
                             <motion.div
                                 className="card"
-                                initial={{
-                                    opacity: 0,
-                                    // if odd index card,slide from right instead of left
-                                    x: 2 % 2 === 0 ? 50 : -50
+                                initial={{ scale: 0.2 }}
+                                animate={{ scale: 1 }}
+                                transition={{
+                                    duration: 1,
+                                    ease: "easeOut"
                                 }}
-                                whileInView={{
-                                    opacity: 1,
-                                    x: 0, // Slide in to its original position
-                                    transition: {
-                                        duration: 1 // Animation duration
-                                    }
-                                }}
-                                viewport={{ once: true }}
                             >
                                 <Swiper
                                     spaceBetween={30}
@@ -148,9 +162,9 @@ const Hero = () => {
                         </div>
                     </div>
                 </section>
-            </div>
+            </div >
 
-        </div>
+        </div >
     )
 }
 

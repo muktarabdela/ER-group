@@ -3,22 +3,32 @@ import image from "../assets/layered-waves-haikei.png"
 import home from "../assets/home.png"
 import "./service.css"
 // motion
-import { motion } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 // variants
 import { fadeIn } from '../variants'
 
 const Services = () => {
+    const { scrollYProgress } = useScroll();
+
     return (
-        <div className='container pt-10'>
+        <div
+            className='container pt-10'>
             <div className='max-w-7xl mx-auto '>
                 <div className=''>
                     <motion.h1
-                        variants={fadeIn("down", 0.2)}
-                        initial="hidden"
-                        whileInView={"show"}
-                        viewport={{ once: true, amount: 0.7 }}
+                        initial={{ opacity: 0, y: -50 }}
 
-                        className='flex justify-center text-black text-4xl font-semibold my-4'>Our Services</motion.h1>
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                        className='flex justify-center text-black text-4xl font-semibold my-4'>
+                        Our Services</motion.h1>
+
                     <div className='w-full'>
                         <img className='w-full h-[23em] rounded-2xl mt-10' src={image} alt="" />
                         <div className='lg:flex  justify-center relative bottom-[8em] ml-10 gap-10 mx-auto'>
@@ -26,14 +36,14 @@ const Services = () => {
                             <motion.div
                                 initial={{
                                     opacity: 0,
-                                    // if odd index card,slide from right instead of left
-                                    x: 1 % 2 === 0 ? 50 : -50
+                                    x: -100
                                 }}
                                 whileInView={{
                                     opacity: 1,
-                                    x: 0, // Slide in to its original position
+                                    x: 0,
                                     transition: {
-                                        duration: 1 // Animation duration
+                                        duration: 0.96,
+                                        ease: "easeOut"
                                     }
                                 }}
                                 viewport={{ once: true }} className='shadow-md w-[20em] h-[20em] bg-white border border-gray-50 rounded-md'>
@@ -57,10 +67,16 @@ const Services = () => {
                             </motion.div>
 
                             <motion.div
-                                variants={fadeIn("up", 0.2)}
-                                initial="hidden"
-                                whileInView={"show"}
-                                viewport={{ once: true, amount: 0.10 }}
+                                initial={{ scale: 0.2 }}
+                                whileInView={{
+                                    scale: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1,
+                                        ease: "easeOut"
+                                    }
+                                }}
+                                viewport={{ once: true }}
 
                                 className='lg:my-0 my-8 shadow-md w-[20em] h-[20em] bg-white border border-gray-50 rounded-md'>
                                 <div className='bg- flex justify-center  rounded-md items-center mx-auto relative bottom-6'>
@@ -85,14 +101,14 @@ const Services = () => {
                             <motion.div
                                 initial={{
                                     opacity: 0,
-                                    // if odd index card,slide from right instead of left
-                                    x: 2 % 2 === 0 ? 50 : -50
+                                    x: 100
                                 }}
                                 whileInView={{
                                     opacity: 1,
-                                    x: 0, // Slide in to its original position
+                                    x: 0,
                                     transition: {
-                                        duration: 1 // Animation duration
+                                        duration: 0.96,
+                                        ease: "easeOut"
                                     }
                                 }}
                                 viewport={{ once: true }} className='shadow-md w-[20em] h-[20em] bg-white border border-gray-50 rounded-md'>
@@ -116,24 +132,6 @@ const Services = () => {
                             </motion.div>
 
 
-                            <motion.div
-                                className="card"
-                                initial={{
-                                    opacity: 0,
-                                    // if odd index card,slide from right instead of left
-                                    x: 2 % 2 === 0 ? 50 : -50
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    x: 0, // Slide in to its original position
-                                    transition: {
-                                        duration: 1 // Animation duration
-                                    }
-                                }}
-                                viewport={{ once: true }}
-                            >
-
-                            </motion.div>
 
                         </div>
                     </div>
