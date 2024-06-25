@@ -35,4 +35,4 @@ const Partener = () => {
     )
 }
 
-export default Partener
+export default Partener;
